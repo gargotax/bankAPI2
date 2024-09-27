@@ -31,7 +31,7 @@ namespace BankApi.Controllers
 
                 Account.AccountType accountType = account is CurrentAccount ? Account.AccountType.CurrentAccount
                                                                             : Account.AccountType.SavingAccount;
-                AccountDto accountDto = new(account?.UserId, accountType, account.Balance);
+                AccountDto accountDto = new(account.UserId, accountType, account.Balance);
                 return Ok(accountDto);
             
             } catch(KeyNotFoundException)
