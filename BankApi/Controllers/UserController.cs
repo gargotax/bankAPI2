@@ -1,9 +1,10 @@
-﻿using Application.CreateUserComand;
-using Application.DeleteUserComand;
-using Application.GetUserComand;
-using Application.UpdateUserComand;
+﻿using Application.UserComands.CreateUserComand;
+using Application.UserComands.DeleteUserComand;
+using Application.UserComands.GetUserComand;
+using Application.UserComands.UpdateUserComand;
 using BankApi.Dto;
 using BankApi.Models;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,13 +18,13 @@ namespace BankApi.Controllers
         // GET api/<UserController>/5
         [HttpGet("{id}")]
         [ProducesResponseType<UserDto>(StatusCodes.Status200OK)]
-        [ProducesResponseType<UserDto>(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<UserDto>> GetUser([FromRoute] Guid id, [FromServices] IGetUserComandHandler handler, CancellationToken cancellationToken)
         {
             GetUserComand comand = new(id);
             try
             {
-                var user = await handler.HandleAsync(comand, cancellationToken);
+                User user = await handler.HandleAsync(comand, cancellationToken);
                 UserDto userDto = new(id, user.Name);
                 return Ok(userDto);
             }
@@ -64,13 +65,12 @@ namespace BankApi.Controllers
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<ActionResult> DeleteUser([FromRoute] Guid id, [FromServices] IDeleteUserComandHandler handler, CancellationToken cancellationToken)
         {
             DeleteUserComand comand = new(id);
             await handler.HandleAsync(comand, cancellationToken);
-            return Ok();
+            return NoContent();
 
         }
     }

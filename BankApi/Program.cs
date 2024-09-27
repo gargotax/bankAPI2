@@ -1,7 +1,12 @@
-using Application.CreateUserComand;
-using Application.DeleteUserComand;
-using Application.GetUserComand;
-using Application.UpdateUserComand;
+using Application.AccountComands.CreateAccountComand;
+using Application.AccountComands.DeleteAccountComand;
+using Application.AccountComands.GetAccountComand;
+using Application.AccountComands.UpdateAccountComand;
+using Application.TransactionComands;
+using Application.UserComands.CreateUserComand;
+using Application.UserComands.DeleteUserComand;
+using Application.UserComands.GetUserComand;
+using Application.UserComands.UpdateUserComand;
 using Domain.Repos;
 using Infrastructure;
 
@@ -24,6 +29,13 @@ namespace BankApi
             builder.Services.AddScoped<IGetUserComandHandler, GetUserComandHandler>();
             builder.Services.AddScoped<IDeleteUserComandHandler, DeleteUserComandHandler>();
             builder.Services.AddScoped<IUpdateUserComandHandler, UpdateUserComandHandler>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+            builder.Services.AddScoped<ICreateAccountComandHandler, CreateAccountComandHandler>();
+            builder.Services.AddScoped<IGetAccountComandHandler, GetAccountComandHandler>();
+            builder.Services.AddScoped<IDeleteAccountComandHandler, DeleteAccountComandHandler>();
+            builder.Services.AddScoped<IUpdateAccountComandHandler, UpdateAccountComandHandler>();
+            builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+            builder.Services.AddScoped<ICreateTransactionComandHandler, CreateTransactionComandHandler>();
 
             var app = builder.Build();
 

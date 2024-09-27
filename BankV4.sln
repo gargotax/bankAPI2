@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApi", "BankApi\BankApi.csproj", "{9F332FDE-D381-4460-A322-DCFBD7C9C68A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankApi", "BankApi\BankApi.csproj", "{9F332FDE-D381-4460-A322-DCFBD7C9C68A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{C1126A33-E31B-4F38-95BA-E4B1A959C0B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{C1126A33-E31B-4F38-95BA-E4B1A959C0B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{36353721-9638-4E73-B139-4C3C98C1021F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{36353721-9638-4E73-B139-4C3C98C1021F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A4BA2799-94CE-4366-B1E8-06FDA3E00359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A4BA2799-94CE-4366-B1E8-06FDA3E00359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankV4.UnitTests", "BankV4.UnitTests\BankV4.UnitTests.csproj", "{8143840D-42AB-412C-878F-5F4C89AE4822}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A4BA2799-94CE-4366-B1E8-06FDA3E00359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4BA2799-94CE-4366-B1E8-06FDA3E00359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4BA2799-94CE-4366-B1E8-06FDA3E00359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8143840D-42AB-412C-878F-5F4C89AE4822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8143840D-42AB-412C-878F-5F4C89AE4822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8143840D-42AB-412C-878F-5F4C89AE4822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8143840D-42AB-412C-878F-5F4C89AE4822}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

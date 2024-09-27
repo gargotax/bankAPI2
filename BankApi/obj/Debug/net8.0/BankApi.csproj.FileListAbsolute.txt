@@ -36,3 +36,4 @@ C:\Users\HP\Desktop\hachemi\mestests\BankV4\BankApi\obj\Debug\net8.0\refint\Bank
 C:\Users\HP\Desktop\hachemi\mestests\BankV4\BankApi\obj\Debug\net8.0\BankApi.pdb
 C:\Users\HP\Desktop\hachemi\mestests\BankV4\BankApi\obj\Debug\net8.0\BankApi.genruntimeconfig.cache
 C:\Users\HP\Desktop\hachemi\mestests\BankV4\BankApi\obj\Debug\net8.0\ref\BankApi.dll
+C:\Users\HP\Desktop\hachemi\mestests\BankV4\BankApi\obj\Debug\net8.0\BankApi.sourcelink.json

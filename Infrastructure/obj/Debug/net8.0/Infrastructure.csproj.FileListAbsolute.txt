@@ -13,3 +13,4 @@ C:\Users\HP\Desktop\hachemi\mestests\BankV4\Infrastructure\obj\Debug\net8.0\Infr
 C:\Users\HP\Desktop\hachemi\mestests\BankV4\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
 C:\Users\HP\Desktop\hachemi\mestests\BankV4\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 C:\Users\HP\Desktop\hachemi\mestests\BankV4\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\HP\Desktop\hachemi\mestests\BankV4\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json
