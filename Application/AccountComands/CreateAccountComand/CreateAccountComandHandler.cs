@@ -1,5 +1,4 @@
-﻿using Application.UserComands.GetUserComand;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Repos;
 
 namespace Application.AccountComands.CreateAccountComand
@@ -14,9 +13,9 @@ namespace Application.AccountComands.CreateAccountComand
             _userRepository = userRepository;
 
         }
-        public async Task<Guid> HandleAsync(CreateAccountComand comand, GetUserComand userComand, CancellationToken cancellationToken)
+        public async Task<Guid> HandleAsync(CreateAccountComand comand, CancellationToken cancellationToken)
         {
-            User? user = await _userRepository.GetUserById(userComand.Id, cancellationToken);
+            User? user = await _userRepository.GetUserById(comand.UserId, cancellationToken);
             if(user == null)
             {
                 throw new KeyNotFoundException();

@@ -23,14 +23,13 @@ namespace BankApi.Controllers
         [HttpPost("{accountId}")]
         [ProducesResponseType<Guid>(StatusCodes.Status201Created)]
         [ProducesResponseType<Guid>(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Guid>> CreateTransaction([FromRoute]Guid accountId, CreateTransactionRequest request, [FromServices]IUpdateAccountComandHandler updateAccount, [FromServices]ICreateTransactionComandHandler handler, CancellationToken cancellationToken)
+        public async Task<ActionResult<Guid>> CreateTransaction([FromRoute]Guid accountId, CreateTransactionRequest request, [FromServices]ICreateTransactionComandHandler handler, CancellationToken cancellationToken)
         {
             UpdateAccountComand updateAccountComand = new(accountId);
             try
             {
                 CreateTransactionComand comand = new(accountId, request.Amount, DateTime.Now, request.Direction);
                 Guid transaction = await handler.HandleAsync(comand, cancellationToken);
-                await updateAccount.HandleAsync(updateAccountComand, cancellationToken);
                 return Created(string.Empty, transaction);          
             }
             catch (KeyNotFoundException)

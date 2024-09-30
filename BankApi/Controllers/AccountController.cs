@@ -1,11 +1,7 @@
 ﻿using Application.AccountComands.CreateAccountComand;
 using Application.AccountComands.DeleteAccountComand;
 using Application.AccountComands.GetAccountComand;
-using Application.AccountComands.UpdateAccountComand;
-using Application.TransactionComands;
-using Application.UserComands.GetUserComand;
 using BankApi.Dto;
-using BankApi.Models;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,15 +39,13 @@ namespace BankApi.Controllers
         // POST api/<AccountController>
         [HttpPost("{userId}")]
         [ProducesResponseType<Guid>(StatusCodes.Status201Created)]
-        [ProducesResponseType<Guid>(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Guid>> CreateAccount([FromRoute] Guid userId, [FromServices]ICreateAccountComandHandler handler, [FromServices]IGetUserComandHandler userHandler, CancellationToken cancellationToken)
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<Guid>> CreateAccount([FromRoute] Guid userId, [FromServices]ICreateAccountComandHandler handler, CancellationToken cancellationToken)
         {
-            GetUserComand comandUser = new(userId);
             try
             {
-                var user = await userHandler.HandleAsync(comandUser, cancellationToken);
-                CreateAccountComand comand = new(user);
-                Guid accountId = await handler.HandleAsync(comand, comandUser, cancellationToken);
+                CreateAccountComand comand = new(userId);
+                Guid accountId = await handler.HandleAsync(comand, cancellationToken);
                 return Created(string.Empty, accountId);
             }
             catch (KeyNotFoundException)

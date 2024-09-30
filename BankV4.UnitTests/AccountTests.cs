@@ -14,7 +14,7 @@ namespace BankV4.UnitTests
             Account account = new CurrentAccount(accountId, usertId);
 
             //Act
-            Action act = () => account.Withdraw(-1);
+            Action act = () => account.Debit(-1);
             
             //Assert
             act.Should().Throw<Exception>();
@@ -30,7 +30,7 @@ namespace BankV4.UnitTests
             Account account = new CurrentAccount(accountId, usertId);
 
             //Act
-            Action act = () => account.Withdraw(1600);
+            Action act = () => account.Debit(1600);
 
             //Assert
             act.Should().Throw<Exception>();
@@ -45,7 +45,7 @@ namespace BankV4.UnitTests
             Account account = new CurrentAccount(accountId, usertId);
 
             //Act
-            Action act = () => account.Withdraw(1501);
+            Action act = () => account.Debit(1501);
 
             //Assert
             act.Should().Throw<Exception>();
@@ -60,7 +60,7 @@ namespace BankV4.UnitTests
             Account account = new CurrentAccount(accountId, usertId);
 
             //Act
-            Action act = () => account.Deposit(0);
+            Action act = () => account.Credit(0);
 
             //Assert
             act.Should().Throw<Exception>();
@@ -72,10 +72,10 @@ namespace BankV4.UnitTests
             //Arrange
             Guid accountId = Guid.NewGuid();
             Guid usertId = Guid.NewGuid();
-            Account account = new SavingAccount(accountId, usertId, 1000, -500);
+            Account account = new SavingAccount(accountId, usertId);
 
             //Act
-            account.Deposit(20);
+            account.Credit(20);
 
             //Assert
             account.Balance.Should().Be(1020);
@@ -87,10 +87,10 @@ namespace BankV4.UnitTests
             //Arrange
             Guid accountId = Guid.NewGuid();
             Guid usertId = Guid.NewGuid();
-            Account account = new SavingAccount(accountId, usertId, 1000, -500);
+            Account account = new SavingAccount(accountId, usertId);
 
             //Act
-            account.Withdraw(1);
+            account.Debit(1);
 
             //Assert
             account.Balance.Should().Be(999);
@@ -102,10 +102,10 @@ namespace BankV4.UnitTests
             //Arrange
             Guid accountId = Guid.NewGuid();
             Guid usertId = Guid.NewGuid();
-            Account account = new SavingAccount(accountId, usertId, 1000, -500);
+            Account account = new SavingAccount(accountId, usertId);
 
             //Act
-            account.Deposit(10);
+            account.Credit(10);
 
             //Assert
             account.Balance.Should().Be(1010);

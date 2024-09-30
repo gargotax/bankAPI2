@@ -6,9 +6,9 @@
         {
         }
 
-        public override void Deposit(decimal amount)
+        public override void Credit(decimal amount)
         {
-            if (amount <= 0)
+            if (amount < 1)
             {
                 throw new ArgumentException();
             }

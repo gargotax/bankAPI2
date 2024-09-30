@@ -2,11 +2,11 @@
 {
     public class SavingAccount : Account
     {
-        public SavingAccount(Guid id, Guid userId, decimal balance, decimal overdraft) : base(id, userId)
+        public SavingAccount(Guid id, Guid userId) : base(id, userId)
         {
         }
 
-        public override void Deposit(decimal amount)
+        public override void Credit(decimal amount)
         {
             Balance += amount;
         }

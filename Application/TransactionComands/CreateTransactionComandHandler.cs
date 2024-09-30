@@ -26,14 +26,15 @@ namespace Application.TransactionComands
 
             if (transaction.TransactionDirection == Direction.Debit)
             {
-                accountToGet.Withdraw(comand.Amount); 
+                accountToGet.Debit(comand.Amount); 
             }
             else if (transaction.TransactionDirection == Direction.Credit)
             {
-                accountToGet.Deposit(comand.Amount);  
+                accountToGet.Credit(comand.Amount);  
             }
 
             await _transactionRepository.CreateTransaction(transaction, cancellationToken);
+            await _accountRepository.UpdateAccount(accountToGet, cancellationToken);
             return transaction.TransactionId;
         }
     }

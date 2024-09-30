@@ -18,25 +18,31 @@
             CurrentAccount = 0,
             SavingAccount = 1,
         }
-        public abstract void Deposit(decimal amount);
-        public void Withdraw(decimal amount)
+        public abstract void Credit(decimal amount);
+        public void Debit(decimal amount)
         {
-            var balanceAfterWithDrow = Balance - amount;
-           
-            if(amount<0)
+            CheckAmountLessThanZero(amount);
+
+            decimal balanceAfterWithDraw = Balance - amount;
+
+            if (balanceAfterWithDraw < Overdraft)
             {
                 throw new Exception();
             }
-            if (balanceAfterWithDrow < Overdraft)
-            {
-                throw new Exception();
-            }
-            if(Balance<= Overdraft)
+            if (Balance <= Overdraft)
             {
                 throw new Exception();
             }
 
             Balance -= amount;
+        }
+
+        private static void CheckAmountLessThanZero(decimal amount)
+        {
+            if (amount < 0)
+            {
+                throw new Exception();
+            }
         }
     }
 }

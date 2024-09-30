@@ -1,13 +1,12 @@
-﻿using Domain.Entities;
-
+﻿
 namespace Application.AccountComands.CreateAccountComand
 {
     public class CreateAccountComand
     {
-        public User User { get; }
-        public CreateAccountComand(User user)
+        public Guid UserId { get; }
+        public CreateAccountComand(Guid userId)
         {
-            User = user;
+            UserId = userId;
         }
     }
 }
